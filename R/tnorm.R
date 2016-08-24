@@ -13,10 +13,14 @@
 #' x <- tnorm (n=100, sd=0.1)
 #'
 #' @export
-tnorm <- function (n=100, sd=0.1, seed)
+tnorm <- function (n, sd, seed)
 {
     if (missing (n)) stop ('n must be given')
+    if (!is.numeric (n)) stop ('n must be numeric')
+    if (n <= 0.0) stop ('n must be positive')
 
+    if (missing (sd)) stop ('sd must be given')
+    if (!is.numeric (sd)) stop ('sd must be numeric')
     if (sd <= 0.0) stop ('sd must be positive')
 
     if (!missing (seed)) set.seed (seed)

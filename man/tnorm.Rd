@@ -4,7 +4,7 @@
 \alias{tnorm}
 \title{tnorm}
 \usage{
-tnorm(n = 100, sd = 0.1, seed)
+tnorm(n, sd, seed)
 }
 \arguments{
 \item{n}{Number of truncated normally distributed observations to be

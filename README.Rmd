@@ -24,6 +24,7 @@ while (length (grep ('truncnorm', getwd ())) > 0) setwd ("..")
 #Rcpp::compileAttributes ("truncnorm")
 devtools::load_all ("truncnorm")
 setwd ("./truncnorm")
+#testthat::test_package ('truncnorm')
 ```
 
 -----
