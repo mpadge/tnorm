@@ -15,3 +15,17 @@ rcpp_trunc_ndist <- function(len, sd) {
     .Call('truncnorm_rcpp_trunc_ndist', PACKAGE = 'truncnorm', len, sd)
 }
 
+#' rcpp_trunc_ndist2
+#'
+#' Truncated normal distribution (mean 1, respective upper and lower limits of
+#' 0 and 2).
+#'
+#' @param len Number of elements to be simulated
+#' @param sd Standard deviation
+#'
+#' @return A vector of truncated normally distributed values
+#'
+rcpp_trunc_ndist2 <- function(len, sd) {
+    .Call('truncnorm_rcpp_trunc_ndist2', PACKAGE = 'truncnorm', len, sd)
+}
+

@@ -28,6 +28,20 @@ setwd ("./truncnorm")
 
 ## Use
 
+There are currently two methods which are compared here
+
 ```{r}
-z <- tnorm (n=100, sd=0.1)
+set.seed (1); z1 <- tnorm (n=100, sd=0.1, method=1)
+set.seed (1); z2 <- tnorm (n=100, sd=0.1, method=2)
+identical (z1, z2)
+```
+
+Then compare timings. Things go much slower for `sd>0.26`, hence the value used
+here
+```{r}
+sd <- 0.260
+set.seed (1); 
+system.time (z1 <- tnorm (n=1e4, sd=sd, method=1))
+set.seed (1); 
+system.time (z2 <- tnorm (n=1e4, sd=sd, method=2))
 ```
