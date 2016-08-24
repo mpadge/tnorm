@@ -17,15 +17,3 @@ BEGIN_RCPP
     return __result;
 END_RCPP
 }
-// rcpp_trunc_ndist2
-Rcpp::NumericVector rcpp_trunc_ndist2(int len, double sd);
-RcppExport SEXP truncnorm_rcpp_trunc_ndist2(SEXP lenSEXP, SEXP sdSEXP) {
-BEGIN_RCPP
-    Rcpp::RObject __result;
-    Rcpp::RNGScope __rngScope;
-    Rcpp::traits::input_parameter< int >::type len(lenSEXP);
-    Rcpp::traits::input_parameter< double >::type sd(sdSEXP);
-    __result = Rcpp::wrap(rcpp_trunc_ndist2(len, sd));
-    return __result;
-END_RCPP
-}

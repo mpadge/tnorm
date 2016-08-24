@@ -4,3 +4,4 @@ makefile$
 ^README\.Rmd$
 ^README\.html$
 ^src/Makevars$
+^tmux-start.bash$

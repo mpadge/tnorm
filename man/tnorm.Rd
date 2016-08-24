@@ -4,15 +4,13 @@
 \alias{tnorm}
 \title{tnorm}
 \usage{
-tnorm(n = 100, sd = 0.1, method = 1, seed)
+tnorm(n = 100, sd = 0.1, seed)
 }
 \arguments{
 \item{n}{Number of truncated normally distributed observations to be
 simulated}
 
 \item{sd}{Standard deviation of truncated normal distribution}
-
-\item{method}{Select method for generation}
 
 \item{seed}{Random seed}
 }
