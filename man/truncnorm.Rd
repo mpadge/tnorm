@@ -13,7 +13,8 @@ Generates truncated normal distributions. Current best R method is
 \section{Functions}{
 
 \tabular{ll}{
-\code{junk}\tab description
+\code{tnorm}\tab The sole function; used to generate truncated normal
+distributions
 }
 }
 

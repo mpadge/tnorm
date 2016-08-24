@@ -6,7 +6,8 @@
 #'
 #' @section Functions:
 #' \tabular{ll}{
-#' \code{junk}\tab description
+#' \code{tnorm}\tab The sole function; used to generate truncated normal
+#' distributions
 #' }
 #'
 #' @name truncnorm
