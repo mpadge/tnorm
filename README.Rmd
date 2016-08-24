@@ -1,0 +1,31 @@
+
+# truncnorm
+
+There are a few ways to generate truncated normal distribution in `R`, but these
+are s l o w. `truncnorm` is simply faster.
+
+
+--------
+
+
+## Install
+
+```{r, eval=FALSE}
+devtools::install_github ('mpadge/truncnorm')
+```
+```{r load, echo=FALSE, message=FALSE}
+while (length (grep ('trunc-norm', getwd ())) > 0) setwd ("..")
+devtools::document ("trunc-norm")
+devtools::check ("trunc-norm")
+#Rcpp::compileAttributes ("truncnorm")
+devtools::load_all ("trunc-norm")
+setwd ("./trunc-norm")
+```
+
+-----
+
+## Use
+
+```{r}
+z <- tnorm (n=100, sd=0.1)
+```
