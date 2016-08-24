@@ -1,13 +1,13 @@
 #!/bin/sh
-SESSION="trunc-norm"
+SESSION="truncnorm"
 
 tmux -2 new-session -d -s $SESSION
 
 tmux new-window -t $SESSION:1 -k -n R
 tmux send-keys -t $SESSION:1 'vim README.Rmd' C-m
 tmux send-keys -t $SESSION:1 ':' 'tabe R/tnorm.R' C-m
-tmux send-keys -t $SESSION:1 ':' 'tabe R/trunc-norm.R' C-m
-#tmux send-keys -t $SESSION:1 '2gt'
+tmux send-keys -t $SESSION:1 ':' 'tabe R/truncnorm.R' C-m
+tmux send-keys -t $SESSION:1 '1gt'
 
 tmux new-window -t $SESSION:2 -k -n cpp
 tmux send-keys -t $SESSION:2 'cd ./src' C-m
