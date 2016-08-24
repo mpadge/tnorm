@@ -2,5 +2,4 @@
 
 export(tnorm)
 importFrom(Rcpp,evalCpp)
-importFrom(devtools,load_all)
 useDynLib(truncnorm)

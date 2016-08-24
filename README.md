@@ -19,6 +19,15 @@ devtools::install_github ('mpadge/truncnorm')
 Use
 ---
 
+The one and only function
+
+``` r
+z <- tnorm (n=1e5, sd=1)
+```
+
+Compare timing with `msm::rtnorm`
+---------------------------------
+
 ``` r
 set.seed (1); 
 st1 <- system.time (z <- tnorm (n=1e5, sd=1))
@@ -33,10 +42,10 @@ st1; st2
 ```
 
     ##    user  system elapsed 
-    ##   0.020   0.000   0.019
+    ##   0.016   0.000   0.015
 
     ##    user  system elapsed 
-    ##   0.432   0.000   0.430
+    ##   1.180   0.016   1.195
 
 And the speed-up is
 
@@ -44,4 +53,4 @@ And the speed-up is
 as.numeric (st2 [3] / st1 [3])
 ```
 
-    ## [1] 22.63158
+    ## [1] 79.66667

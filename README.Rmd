@@ -30,6 +30,12 @@ setwd ("./truncnorm")
 
 ## Use
 
+The one and only function
+```{r}
+z <- tnorm (n=1e5, sd=1)
+```
+
+## Compare timing with `msm::rtnorm`
 
 ```{r}
 set.seed (1); 

@@ -12,7 +12,6 @@
 #'
 #' @name truncnorm
 #' @docType package
-#' @importFrom devtools load_all
 #' @importFrom Rcpp evalCpp
 #' @useDynLib truncnorm
 NULL
