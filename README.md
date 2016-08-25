@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/mpadge/tnorm?branch=master)](https://travis-ci.org/mpadge/tnorm) [![codecov](https://codecov.io/gh/mpadge/tnorm/branch/master/graph/badge.svg)](https://codecov.io/gh/mpadge/tnorm)
+[![Build Status](https://travis-ci.org/mpadge/tnorm.svg?branch=master)](https://travis-ci.org/mpadge/tnorm) [![codecov](https://codecov.io/gh/mpadge/tnorm/branch/master/graph/badge.svg)](https://codecov.io/gh/mpadge/tnorm)
 
 tnorm
 =====
@@ -51,7 +51,7 @@ st
 ```
 
     ## user.self user.self user.self 
-    ##     0.016     0.372     0.052
+    ##     0.012     0.332     0.044
 
 And the speed-ups are
 
@@ -59,8 +59,8 @@ And the speed-ups are
 as.numeric (st [2] / st [1]); as.numeric (st [3] / st [1])
 ```
 
-    ## [1] 23.25
+    ## [1] 27.66667
 
-    ## [1] 3.25
+    ## [1] 3.666667
 
 And `tnormn` is still several times faster than `rtruncnorm`.

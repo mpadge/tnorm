@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/mpadge/tnorm?branch=master)](https://travis-ci.org/mpadge/tnorm)
+[![Build Status](https://travis-ci.org/mpadge/tnorm.svg?branch=master)](https://travis-ci.org/mpadge/tnorm)
 [![codecov](https://codecov.io/gh/mpadge/tnorm/branch/master/graph/badge.svg)](https://codecov.io/gh/mpadge/tnorm)
 
 # tnorm
