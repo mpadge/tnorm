@@ -1,29 +1,18 @@
 #' tnorm
 #'
-#' Generates a truncated normal distribution
+#' Generates truncated normal distributions. Current best R method is
+#' \code{msm::rtnorm}, but this is entirely R-based and therefore s l o w.
+#' \code{trunc-norm} is \code{Rcpp}-based and much faster.
 #'
-#' @param n Number of truncated normally distributed observations to be
-#' simulated
-#' @param sd Standard deviation of truncated normal distribution
-#' @param seed Random seed
+#' @section Functions:
+#' \tabular{ll}{
+#' \code{tnormn}\tab The sole function; used to generate truncated normal
+#' distributions
+#' }
 #'
-#' @return A vector of n truncated normally distributed values
-#'
-#' @examples
-#' x <- tnorm (n=100, sd=0.1)
-#'
-#' @export
-tnorm <- function (n, sd, seed)
-{
-    if (missing (n)) stop ('n must be given')
-    if (!is.numeric (n)) stop ('n must be numeric')
-    if (n <= 0.0) stop ('n must be positive')
-
-    if (missing (sd)) stop ('sd must be given')
-    if (!is.numeric (sd)) stop ('sd must be numeric')
-    if (sd <= 0.0) stop ('sd must be positive')
-
-    if (!missing (seed)) set.seed (seed)
-
-    rcpp_trunc_ndist (n, sd)
-}
+#' @name tnorm
+#' @docType package
+#' @importFrom Rcpp evalCpp
+#' @importFrom truncnorm rtruncnorm
+#' @useDynLib tnorm
+NULL

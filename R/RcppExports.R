@@ -12,6 +12,6 @@
 #' @return A vector of truncated normally distributed values
 #'
 rcpp_trunc_ndist <- function(len, sd) {
-    .Call('truncnorm_rcpp_trunc_ndist', PACKAGE = 'truncnorm', len, sd)
+    .Call('tnorm_rcpp_trunc_ndist', PACKAGE = 'tnorm', len, sd)
 }
 

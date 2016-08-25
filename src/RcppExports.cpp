@@ -7,7 +7,7 @@ using namespace Rcpp;
 
 // rcpp_trunc_ndist
 Rcpp::NumericVector rcpp_trunc_ndist(int len, double sd);
-RcppExport SEXP truncnorm_rcpp_trunc_ndist(SEXP lenSEXP, SEXP sdSEXP) {
+RcppExport SEXP tnorm_rcpp_trunc_ndist(SEXP lenSEXP, SEXP sdSEXP) {
 BEGIN_RCPP
     Rcpp::RObject __result;
     Rcpp::RNGScope __rngScope;

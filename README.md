@@ -1,9 +1,15 @@
-[![Build Status](https://travis-ci.org/mpadge/truncnorm?branch=master)](https://travis-ci.org/mpadge/truncnorm) [![codecov](https://codecov.io/gh/mpadge/truncnorm/branch/master/graph/badge.svg)](https://codecov.io/gh/mpadge/truncnorm)
+[![Build Status](https://travis-ci.org/mpadge/tnorm?branch=master)](https://travis-ci.org/mpadge/tnorm) [![codecov](https://codecov.io/gh/mpadge/tnorm/branch/master/graph/badge.svg)](https://codecov.io/gh/mpadge/tnorm)
 
-truncnorm
-=========
+tnorm
+=====
 
-There are a few ways to generate truncated normal distribution in `R`, but these are **s l o w**. `truncnorm` is simply faster. Currently generates distributions centred around a mean value of 1, truncated to between 0 and 2. Values can be readily re-scaled to desired mean values and limits.
+This package exists merely as a faster replacement for the core functionality of other packages. It generates vectors of random values from a truncated normal distribution. This functionality already exists in both
+
+1.  [msm::rtnorm](https://cran.r-project.org/package=msm), which is entirely R-based, and
+
+2.  [truncnorm::rtruncnorm](https://cran.r-project.org/package=truncnorm), which has core code in C.
+
+Even the latter of these is, however, slower than `tnorm` at generating random values. `tnorm` currently generates distributions centred around a mean value of 1, truncated to between 0 and 2. Values can be readily re-scaled to desired mean values and limits.
 
 ------------------------------------------------------------------------
 
@@ -11,7 +17,7 @@ Install
 -------
 
 ``` r
-devtools::install_github ('mpadge/truncnorm')
+devtools::install_github ('mpadge/tnorm')
 ```
 
 ------------------------------------------------------------------------
@@ -22,35 +28,39 @@ Use
 The one and only function
 
 ``` r
-z <- tnorm (n=1e5, sd=1)
+z <- tnormn (n=1e5, sd=1)
 ```
 
-Compare timing with `msm::rtnorm`
----------------------------------
+Compare timing with `msm::rtnorm` and `truncnorm::rtruncnorm`
+-------------------------------------------------------------
 
 ``` r
-set.seed (1); 
-st1 <- system.time (z <- tnorm (n=1e5, sd=1))
+fns <- c ('tnormn', 
+          get ('rtnorm', asNamespace ('msm'), mode='function'),
+          get ('rtruncnorm', asNamespace ('truncnorm'), mode='function'))
+n <- 1e5
+mn <- sd <- 1
+args <- list (list (n=n, sd=sd), 
+              list (n=n, mean=mn, sd=sd, lower=0, upper=2),
+              list (n=n, mean=mn, sd=sd, a=0, b=2))
+st <- sapply (1:3, function (i) {
+                  set.seed (1)
+                  system.time (do.call (fns [[i]], args [[i]]))[1]
+              })
+st
 ```
 
-Compare with `msm::rtnorm`:
+    ## user.self user.self user.self 
+    ##     0.024     0.400     0.052
+
+And the speed-ups are
 
 ``` r
-set.seed (1); 
-st2 <- system.time (z <- msm::rtnorm (n=1e5, mean=1, sd=1, lower=0, upper=2))
-st1; st2
+as.numeric (st [2] / st [1]); as.numeric (st [3] / st [1])
 ```
 
-    ##    user  system elapsed 
-    ##   0.016   0.000   0.015
+    ## [1] 16.66667
 
-    ##    user  system elapsed 
-    ##   1.180   0.016   1.195
+    ## [1] 2.166667
 
-And the speed-up is
-
-``` r
-as.numeric (st2 [3] / st1 [3])
-```
-
-    ## [1] 79.66667
+And `tnormn` is still several times faster than `rtruncnorm`.
