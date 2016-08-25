@@ -51,7 +51,7 @@ st
 ```
 
     ## user.self user.self user.self 
-    ##     0.024     0.400     0.052
+    ##     0.016     0.372     0.052
 
 And the speed-ups are
 
@@ -59,8 +59,8 @@ And the speed-ups are
 as.numeric (st [2] / st [1]); as.numeric (st [3] / st [1])
 ```
 
-    ## [1] 16.66667
+    ## [1] 23.25
 
-    ## [1] 2.166667
+    ## [1] 3.25
 
 And `tnormn` is still several times faster than `rtruncnorm`.
