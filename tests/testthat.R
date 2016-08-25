@@ -1,4 +1,4 @@
 library(testthat)
-library(truncnorm)
+library(tnorm)
 
-test_check("truncnorm")
+test_check("tnorm")
