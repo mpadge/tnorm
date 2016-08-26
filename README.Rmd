@@ -3,9 +3,11 @@
 
 # tnorm
 
-This package exists merely as a faster replacement for the core functionality of
-other packages. It generates vectors of random values from a truncated normal
-distribution. This functionality already exists in both
+`tnorm` is an R package for generating random samples from truncated normal
+distributions.  It exists solely as a faster replacement for the core
+functionality of other packages, and it useful in simulation contexts where
+speed is important and samples from truncated normal distributions are required.
+This functionality already exists in both
 
 1. [msm::rtnorm](https://cran.r-project.org/package=msm), which is entirely
    R-based, and

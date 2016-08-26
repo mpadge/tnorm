@@ -3,7 +3,7 @@
 tnorm
 =====
 
-This package exists merely as a faster replacement for the core functionality of other packages. It generates vectors of random values from a truncated normal distribution. This functionality already exists in both
+`tnorm` is an R package for generating random samples from truncated normal distributions. It exists solely as a faster replacement for the core functionality of other packages, and it useful in simulation contexts where speed is important and samples from truncated normal distributions are required. This functionality already exists in both
 
 1.  [msm::rtnorm](https://cran.r-project.org/package=msm), which is entirely R-based, and
 
@@ -51,7 +51,7 @@ st
 ```
 
     ## user.self user.self user.self 
-    ##     0.012     0.332     0.044
+    ##     0.008     0.392     0.084
 
 And the speed-ups are
 
@@ -59,8 +59,8 @@ And the speed-ups are
 as.numeric (st [2] / st [1]); as.numeric (st [3] / st [1])
 ```
 
-    ## [1] 27.66667
+    ## [1] 49
 
-    ## [1] 3.666667
+    ## [1] 10.5
 
 And `tnormn` is still several times faster than `rtruncnorm`.
