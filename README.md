@@ -45,13 +45,13 @@ args <- list (list (n=n, sd=sd),
               list (n=n, mean=mn, sd=sd, a=0, b=2))
 st <- sapply (1:3, function (i) {
                   set.seed (1)
-                  system.time (do.call (fns [[i]], args [[i]]))[1]
+                  system.time (do.call (fns [[i]], args [[i]]))[3]
               })
 st
 ```
 
-    ## user.self user.self user.self 
-    ##     0.008     0.392     0.084
+    ## elapsed elapsed elapsed 
+    ##   0.015   0.348   0.046
 
 And the speed-ups are
 
@@ -59,8 +59,8 @@ And the speed-ups are
 as.numeric (st [2] / st [1]); as.numeric (st [3] / st [1])
 ```
 
-    ## [1] 49
+    ## [1] 23.2
 
-    ## [1] 10.5
+    ## [1] 3.066667
 
 And `tnormn` is still several times faster than `rtruncnorm`.
