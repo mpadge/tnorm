@@ -57,9 +57,8 @@ knitr::kable (benchmark (
            order = "relative") [, 1:4])
 ```
 
-|        | test                                                         |  replications|  elapsed|  relative|
-|--------|:-------------------------------------------------------------|-------------:|--------:|---------:|
-| 1      | tnorm::tnormn(n = n, sd = sd)                                |            10|    0.751|     1.000|
-| 3      | truncnorm::rtruncnorm(n = n, sd = sd, a = 0, b = 2)          |            10|    1.373|     1.828|
-| 2      | msm::rtnorm(n = n, mean = mn, sd = sd, lower = 0, upper = 2) |            10|    5.582|     7.433|
-| And \` | tnormn`is still several times faster than`rtruncnorm\`.      |              |         |          |
+|     | test                                                         |  replications|  elapsed|  relative|
+|-----|:-------------------------------------------------------------|-------------:|--------:|---------:|
+| 1   | tnorm::tnormn(n = n, sd = sd)                                |            10|    0.753|     1.000|
+| 3   | truncnorm::rtruncnorm(n = n, sd = sd, a = 0, b = 2)          |            10|    1.317|     1.749|
+| 2   | msm::rtnorm(n = n, mean = mn, sd = sd, lower = 0, upper = 2) |            10|    5.709|     7.582|

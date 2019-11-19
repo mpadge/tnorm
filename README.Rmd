@@ -62,4 +62,3 @@ knitr::kable (benchmark (
            replications = 10,
            order = "relative") [, 1:4])
 ```
-And `tnormn` is still several times faster than `rtruncnorm`.
