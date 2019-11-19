@@ -51,23 +51,15 @@ z <- tnormn (n=1e5, sd=1)
 ## Compare timing with `msm::rtnorm` and `truncnorm::rtruncnorm`
 
 
-```{r}
-fns <- c ('tnormn', 
-          get ('rtnorm', asNamespace ('msm'), mode='function'),
-          get ('rtruncnorm', asNamespace ('truncnorm'), mode='function'))
-n <- 1e5
+```{r benchmarks}
+library (rbenchmark)
+n <- 1e6
 mn <- sd <- 1
-args <- list (list (n=n, sd=sd), 
-              list (n=n, mean=mn, sd=sd, lower=0, upper=2),
-              list (n=n, mean=mn, sd=sd, a=0, b=2))
-st <- sapply (1:3, function (i) {
-                  set.seed (1)
-                  system.time (do.call (fns [[i]], args [[i]]))[3]
-              })
-st
-```
-And the speed-ups are
-```{r}
-as.numeric (st [2] / st [1]); as.numeric (st [3] / st [1])
+benchmark (
+           tnorm::tnormn (n = n, sd = sd),
+           msm::rtnorm (n = n, mean = mn, sd = sd, lower = 0, upper = 2),
+           truncnorm::rtruncnorm (n = n, sd = sd, a = 0, b = 2),
+           replications = 10,
+           order = "relative") [, 1:4]
 ```
 And `tnormn` is still several times faster than `rtruncnorm`.
