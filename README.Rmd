@@ -55,11 +55,11 @@ z <- tnormn (n=1e5, sd=1)
 library (rbenchmark)
 n <- 1e6
 mn <- sd <- 1
-benchmark (
+knitr::kable (benchmark (
            tnorm::tnormn (n = n, sd = sd),
            msm::rtnorm (n = n, mean = mn, sd = sd, lower = 0, upper = 2),
            truncnorm::rtruncnorm (n = n, sd = sd, a = 0, b = 2),
            replications = 10,
-           order = "relative") [, 1:4]
+           order = "relative") [, 1:4])
 ```
 And `tnormn` is still several times faster than `rtruncnorm`.

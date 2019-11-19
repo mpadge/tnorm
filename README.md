@@ -49,21 +49,17 @@ Compare timing with `msm::rtnorm` and `truncnorm::rtruncnorm`
 library (rbenchmark)
 n <- 1e6
 mn <- sd <- 1
-benchmark (
+knitr::kable (benchmark (
            tnorm::tnormn (n = n, sd = sd),
            msm::rtnorm (n = n, mean = mn, sd = sd, lower = 0, upper = 2),
            truncnorm::rtruncnorm (n = n, sd = sd, a = 0, b = 2),
            replications = 10,
-           order = "relative") [, 1:4]
+           order = "relative") [, 1:4])
 ```
 
-    ##                                                           test replications
-    ## 1                                tnorm::tnormn(n = n, sd = sd)           10
-    ## 3          truncnorm::rtruncnorm(n = n, sd = sd, a = 0, b = 2)           10
-    ## 2 msm::rtnorm(n = n, mean = mn, sd = sd, lower = 0, upper = 2)           10
-    ##   elapsed relative
-    ## 1   0.753    1.000
-    ## 3   1.299    1.725
-    ## 2   5.595    7.430
-
-And `tnormn` is still several times faster than `rtruncnorm`.
+|        | test                                                         |  replications|  elapsed|  relative|
+|--------|:-------------------------------------------------------------|-------------:|--------:|---------:|
+| 1      | tnorm::tnormn(n = n, sd = sd)                                |            10|    0.751|     1.000|
+| 3      | truncnorm::rtruncnorm(n = n, sd = sd, a = 0, b = 2)          |            10|    1.373|     1.828|
+| 2      | msm::rtnorm(n = n, mean = mn, sd = sd, lower = 0, upper = 2) |            10|    5.582|     7.433|
+| And \` | tnormn`is still several times faster than`rtruncnorm\`.      |              |         |          |
